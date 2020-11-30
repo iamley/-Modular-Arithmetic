@@ -1,0 +1,34 @@
+/* ============================================================================
+   This file contains the configurations for sonarqube
+   ============================================================================
+
+   Included from: "${rootProject.projectDir}/build.gradle"
+   ============================================================================
+ */
+def allTestCoverageFile = "$buildDir/jacoco/allTestCoverage.exec"
+def excludePatterns = [
+		"**/*TO.java",
+		"**/*VO.java",
+		"**/*Enum.java",
+		"**/*Configuration.java",
+		"**/Constants*.java",
+		"**/*Exception.java",
+		"**/*Config.java",
+		"**/Result.java",
+		"**/ValidatorEnvelope.java",
+		"**/AAEncoder.java",
+		"**/AAMode.java",
+]
+
+subprojects {
+    sonarqube {
+        properties {
+        	property "sonar.exclusions", excludePatterns
+        	property "sonar.jacoco.reportPaths", allTestCoverageFile
+        }
+    }
+}
+
+tasks['sonarqube'].with {
+    dependsOn jacocoTestReport
+}

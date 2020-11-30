@@ -1,0 +1,14 @@
+/* ============================================================================
+   This file contains the configurations for build the package to deploy
+   ============================================================================
+
+   Included from: "${rootProject.projectDir}/build.gradle"
+   ============================================================================
+ */
+
+apply plugin: 'jar'
+
+jar {
+    archiveName project.property("app.name.deploy")
+    destinationDir = file("${project.property('gradle.generated.files')}")
+}

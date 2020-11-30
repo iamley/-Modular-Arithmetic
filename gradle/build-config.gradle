@@ -1,0 +1,24 @@
+/* ============================================================================
+   This file contains the configurations for
+   This Project
+   ============================================================================
+
+   Included from: "${rootProject.projectDir}/build.gradle"
+   ============================================================================
+ */
+
+description = project.property("app.description")
+group = project.property("app.group")
+version = project.property("app.version")
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+// Added for pipeline comatibility
+def ver_pipeline = System.env.VERSION
+
+if (ver_pipeline) {
+    version = ver_pipeline
+}

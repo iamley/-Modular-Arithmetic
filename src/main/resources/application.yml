@@ -1,0 +1,17 @@
+# ============================================================================
+# Parameter Properties for project
+# ============================================================================
+
+spring:
+  application:
+    name: ms-modular-arithmetic
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+      write_dates_as_timestamps: false
+      INDENT_OUTPUT: true
+
+server:
+  servlet:
+    context-path: /ms-modular-arithmetic/api/v1
+

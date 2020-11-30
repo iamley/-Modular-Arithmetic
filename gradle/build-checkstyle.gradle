@@ -1,0 +1,15 @@
+/* ============================================================================
+   This file contains the configurations for sonarqube
+   ============================================================================
+
+   Included from: "${rootProject.projectDir}/build.gradle"
+   ============================================================================
+ */
+
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion = '8.32'
+    showViolations = true
+    configFile = file("${rootProject.projectDir}${project.property('gradle.checkstyle.config')}")
+}

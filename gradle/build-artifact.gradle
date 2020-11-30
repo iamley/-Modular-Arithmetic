@@ -1,0 +1,39 @@
+/* ============================================================================
+   This file contains the configurations for artifact treatment
+   ============================================================================
+
+   Included from: "${rootProject.projectDir}/build.gradle"
+   ============================================================================
+ */
+/*
+configurations {
+    archives
+}
+*/
+
+/*
+artifacts {
+    archives file: file("${project.property('gradle.generated.files')}/${project.property('app.name.deploy')}")
+}
+*/
+
+// DO NOT MODIFY these tasks are used in the pipeline to generate artifact name & publish artifact
+task artifactName {
+    doLast {
+        new File('artifact.txt').write("${project.group}:${project.name}:${project.version}", 'UTF-8')
+    }
+}
+
+uploadArchives {
+    repositories {
+        maven {
+            credentials {
+                username = System.env.ARTIFACTORY_USR
+                password = System.env.ARTIFACTORY_PSW
+            }
+            url = System.env.ARTIFACTORY_PUBLISH_URL
+        }
+    }
+}
+
+project.tasks.uploadArchives.dependsOn(artifactName)
