@@ -11,11 +11,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.0.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework:spring-web:5.2.8.RELEASE'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.3.3.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-security:2.3.3.RELEASE'
 
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.11.2'
